@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-contador',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContadorComponent implements OnInit {
   contador: number = 0
+  @Output() cambiarValorContador = new EventEmitter<number>()
 
   constructor() { }
 
@@ -14,9 +15,13 @@ export class ContadorComponent implements OnInit {
   }
 
   restarUnidad(){
-    this.contador--
+    if(this.contador-1 >= 0){
+      this.contador--
+      this.cambiarValorContador.emit(this.contador)
+    }
   }
   sumarUnidad(){
     this.contador++
+    this.cambiarValorContador.emit(this.contador)
   }
 }

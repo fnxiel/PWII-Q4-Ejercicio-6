@@ -1,12 +1,23 @@
-<a href={{noticia?.enlace}} target="_blank">
-<img src={{noticia?.imagen?.src}} alt={{noticia?.imagen?.alt}}>
-<h2>
-    {{noticia?.encabezado}}
-</h2>
-<p *ngIf="noticia?.destacado">
-    {{noticia?.introduccion}}
-</p>
-<p>Fecha: {{noticia?.fecha?.toLocaleDateString()}}</p>
-</a>
-<img>
-<img class="icono-video" *ngIf="noticia?.contieneVideo" src="https://www.nicepng.com/png/detail/193-1933217_video-play-video-play-icon-png.png" alt="Video Play - - Video Play Icon Png@nicepng.com">
+<div class="noticia-container">
+    <a href={{noticia?.enlace}} target="_blank" class="noticia-enlace">
+        <div class="noticia-contenido">
+            <img src={{noticia?.imagen?.src}} alt={{noticia?.imagen?.alt}} class="noticia-imagen">
+            <div class="detalle-noticia">
+            <h2>
+                {{noticia?.encabezado}}
+            </h2>
+            <p *ngIf="noticia?.destacado">
+                {{noticia?.introduccion}}
+            </p>
+            <p>Fecha: {{noticia?.fecha?.toLocaleDateString()}}</p>
+            <p *ngIf="noticia?.contieneVideo">
+                <img class="icono-video" 
+                src="https://www.nicepng.com/png/detail/193-1933217_video-play-video-play-icon-png.png"
+                alt="Video Play - - Video Play Icon Png@nicepng.com">
+                Ver video
+            </p>
+            </div>
+        </div>
+        
+    </a>
+</div>

@@ -1,3 +1,25 @@
 .icono-video{
     height: 2em;
 }
+.noticia-container{
+    display: flex;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    
+}
+.noticia-contenido{
+    display: flex;
+}
+.noticia-imagen{
+    margin-right: 15px;
+}
+.noticia-enlace{
+    border-radius: 15px;
+    background-color: rgb(238, 238, 238);
+    padding: 15px;
+    margin: 15px;
+    color: rgb(38, 38, 38);
+    text-decoration: none;
+}

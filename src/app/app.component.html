@@ -1,2 +1,2 @@
-<app-contador></app-contador>
+<app-contador (cambiarValorContador)="filtrarNoticias($event)"></app-contador>
 <app-noticia [noticia]="noticiaActual" *ngFor="let noticiaActual of noticias"></app-noticia>
