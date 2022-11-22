@@ -73,14 +73,30 @@ const todasNoticias: INoticia[] = [{
 export class AppComponent {
   title = 'ejerciciocomponentes';
   noticias: INoticia[] = todasNoticias
-
+  encabezado: string = 'Nueva noticia'
+  introduccion: string = 'Esta noticia esta en desarrollo'
+  
   filtrarNoticias(cantidad: number){
     if(cantidad > 0){
       this.noticias = todasNoticias.slice(0, cantidad)
     }else{
       this.noticias = todasNoticias
     }
-    
+  }
+
+  agregarNoticia(){
+    this.noticias.push({
+      imagen: {
+        src: "https://picsum.photos/id/300/200/300",
+        alt: "Paisaje"
+      },
+      enlace: "https://www.bbc.com/mundo/noticias-internacional-63644527",
+      encabezado: this.encabezado,
+      introduccion: this.introduccion,
+      fecha: new Date(),
+      contieneVideo: true,
+      destacado: true
+    })
   }
 
 }

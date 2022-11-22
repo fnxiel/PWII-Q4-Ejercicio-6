@@ -1,2 +1,13 @@
 <app-contador (cambiarValorContador)="filtrarNoticias($event)"></app-contador>
+<div>
+    <h2>Agregar nueva noticia</h2>
+    <label for="encabezado">Encabezado: </label>
+    <input id="encabezado" [(ngModel)]="encabezado" />
+    <label for="introduccion">Introduccion: </label>
+    <input id="introduccion" [(ngModel)]="introduccion" />
+
+    <p>
+        <button (click)="agregarNoticia()">Agregar la noticia</button>
+    </p>
+</div>
 <app-noticia [noticia]="noticiaActual" *ngFor="let noticiaActual of noticias"></app-noticia>

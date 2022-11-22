@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { ContadorComponent } from './contador/contador.component';
 import { NoticiaComponent } from './noticia/noticia.component';
 
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -12,7 +14,8 @@ import { NoticiaComponent } from './noticia/noticia.component';
     NoticiaComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
