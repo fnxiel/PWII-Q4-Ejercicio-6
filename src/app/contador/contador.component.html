@@ -1,8 +1,11 @@
+<div class="container mt-5">
+    <h1>Periódico digital de noticias</h1>
 <div>
-<div>
-<button (click)="restarUnidad()">-</button>
-<input value={{contador}}/>
-<button (click)="sumarUnidad()">+</button>
+    <div class="input-group mb-3">
+        <button (click)="restarUnidad()" class="btn btn-danger input-group-text">-</button>
+        <input class="form-control" value={{contador}}/>
+        <button (click)="sumarUnidad()" class="btn btn-success input-group-text">+</button>
+      </div>
 </div>
 <p>
     Mostrando las {{contador}} noticias mas recientes

@@ -73,9 +73,20 @@ const todasNoticias: INoticia[] = [{
 export class AppComponent {
   title = 'ejerciciocomponentes';
   noticias: INoticia[] = todasNoticias
-  encabezado: string = 'Nueva noticia'
-  introduccion: string = 'Esta noticia esta en desarrollo'
   
+  nuevaNoticia: INoticia = {
+    encabezado: 'Nueva noticia',
+    introduccion: 'Esta noticia esta en desarrollo',
+    enlace: "https://www.google.com",
+    imagen: {
+      src: "https://picsum.photos/id/300/200/300",
+      alt: "Paisaje"
+    },
+    fecha: new Date(),
+    contieneVideo: false,
+    destacado: false
+  }
+
   filtrarNoticias(cantidad: number){
     if(cantidad > 0){
       this.noticias = todasNoticias.slice(0, cantidad)
@@ -84,19 +95,23 @@ export class AppComponent {
     }
   }
 
+  eliminarUltimaNoticia(){
+    this.noticias.pop()
+  }
+
   agregarNoticia(){
+    this.noticias.push(this.nuevaNoticia)
+    /*
     this.noticias.push({
-      imagen: {
-        src: "https://picsum.photos/id/300/200/300",
-        alt: "Paisaje"
-      },
-      enlace: "https://www.bbc.com/mundo/noticias-internacional-63644527",
-      encabezado: this.encabezado,
-      introduccion: this.introduccion,
+      imagen: this.nuevaNoticia.imagen,
+      enlace: this.nuevaNoticia.enlace,
+      encabezado: this.nuevaNoticia.encabezado,
+      introduccion: this.nuevaNoticia.introduccion,
       fecha: new Date(),
       contieneVideo: true,
       destacado: true
     })
+    */
   }
 
 }
