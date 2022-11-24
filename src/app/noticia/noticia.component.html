@@ -1,5 +1,6 @@
 <div class="noticia-container">
-    <a href={{noticia?.enlace}} target="_blank" class="noticia-enlace">
+    <a href={{noticia?.enlace}} target="_blank" class="noticia-enlace" 
+    [ngClass]="(noticia?.clasificacion?.valor) == 'a' ? 'bg-warning' : 'bg-light'">
         <div class="noticia-contenido">
             <img src={{noticia?.imagen?.src}} alt={{noticia?.imagen?.alt}} class="noticia-imagen">
             <div class="detalle-noticia">

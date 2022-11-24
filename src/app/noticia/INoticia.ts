@@ -1,4 +1,5 @@
 import { IImagen } from "./IImagen"
+import { IClasifacion } from "./IClasificacion"
 
 export interface INoticia{
     imagen: IImagen
@@ -8,4 +9,5 @@ export interface INoticia{
     fecha: Date
     contieneVideo: boolean
     destacado: boolean
+    clasificacion: IClasifacion
 }

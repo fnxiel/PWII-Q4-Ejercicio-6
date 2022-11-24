@@ -27,7 +27,12 @@
         <label for="textoimagen" class="form-label">Texto descripción imagen </label>
         <input type="text" class="form-control" id="textoimagen" placeholder="Encabezado de la noticia" [(ngModel)]="nuevaNoticia.imagen.alt" >
     </div>
-    
+    <div class="mb-3">
+        <label for="clasificacion" class="form-label">Clasificación: </label>
+    <select class="form-select" aria-label="Default select example" [(ngModel)]="nuevaNoticia.clasificacion.valor">
+        <option *ngFor="let clasificacion of clasificaciones" value={{clasificacion.valor}}>{{clasificacion.descripcion}}</option>
+      </select>
+    </div>
     <p>
         <button (click)="agregarNoticia()" class="btn btn-primary mt-5">Agregar la noticia</button>
         <button (click)="eliminarUltimaNoticia()" class="btn btn-danger mt-5">Eliminar última</button>

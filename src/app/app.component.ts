@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IClasifacion } from './noticia/IClasificacion';
 import { INoticia } from './noticia/INoticia';
 
 
@@ -12,7 +13,11 @@ const todasNoticias: INoticia[] = [{
   introduccion: "Un perrito que lleva mucho tiempo viviendo en la calle busca ser adoptado por una familia",
   fecha: new Date(2022,10,15),
   contieneVideo: false,
-  destacado: true
+  destacado: true,
+  clasificacion: {
+    valor: "c",
+    descripcion: "Clasificado"
+  }
 },
 {
   imagen: {
@@ -24,7 +29,11 @@ const todasNoticias: INoticia[] = [{
   introduccion: "Es un bonito lugar para pasar en familia",
   fecha: new Date(),
   contieneVideo: true,
-  destacado: false
+  destacado: false,
+  clasificacion: {
+    valor: "a",
+    descripcion: "Anuncio"
+  }
 },
 {
   imagen: {
@@ -36,7 +45,11 @@ const todasNoticias: INoticia[] = [{
   introduccion: "Es un bonito lugar para pasar en familia",
   fecha: new Date(),
   contieneVideo: true,
-  destacado: false
+  destacado: false,
+  clasificacion: {
+    valor: "a",
+    descripcion: "Anuncio"
+  }
 },
 {
   imagen: {
@@ -48,7 +61,11 @@ const todasNoticias: INoticia[] = [{
   introduccion: "Es un bonito lugar para pasar en familia",
   fecha: new Date(),
   contieneVideo: true,
-  destacado: false
+  destacado: false,
+  clasificacion: {
+    valor: "n",
+    descripcion: "Novedad"
+  }
 },
 {
   imagen: {
@@ -60,7 +77,11 @@ const todasNoticias: INoticia[] = [{
   introduccion: "Es un bonito lugar para pasar en familia",
   fecha: new Date(),
   contieneVideo: true,
-  destacado: false
+  destacado: false,
+  clasificacion: {
+    valor: "n",
+    descripcion: "Novedad"
+  }
 },
 ]
 
@@ -73,6 +94,20 @@ const todasNoticias: INoticia[] = [{
 export class AppComponent {
   title = 'ejerciciocomponentes';
   noticias: INoticia[] = todasNoticias
+
+  clasificaciones: IClasifacion[] = [{
+    valor: "a",
+    descripcion: "Anuncio"
+  },
+  {
+    valor: "c",
+    descripcion: "Clasificado"
+  },
+  {
+    valor: "n",
+    descripcion: "Novedad"
+  }
+]
   
   nuevaNoticia: INoticia = {
     encabezado: 'Nueva noticia',
@@ -84,7 +119,11 @@ export class AppComponent {
     },
     fecha: new Date(),
     contieneVideo: false,
-    destacado: false
+    destacado: false,
+    clasificacion: {
+      valor: "n",
+      descripcion: "Novedad"
+    }
   }
 
   filtrarNoticias(cantidad: number){
@@ -100,7 +139,22 @@ export class AppComponent {
   }
 
   agregarNoticia(){
-    this.noticias.push(this.nuevaNoticia)
+    //console.log(this.nuevaNoticia.clasificacion)
+    console.log({
+      ...this.nuevaNoticia, 
+      imagen: {...this.nuevaNoticia.imagen}, 
+      clasificacion: {...this.nuevaNoticia.clasificacion}
+    })
+    this.noticias.push(
+      {
+        ...this.nuevaNoticia, 
+        imagen: {...this.nuevaNoticia.imagen}, 
+        clasificacion: {
+          valor: this.nuevaNoticia.clasificacion.valor,
+          descripcion: this.nuevaNoticia.clasificacion.descripcion
+        }
+      }
+    ) //spread
     /*
     this.noticias.push({
       imagen: this.nuevaNoticia.imagen,
